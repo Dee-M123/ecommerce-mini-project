@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: ecommerce_raw
+    database: RAW
+    schema: OLTP
+    tables:
+      - name: client
+      - name: client_status
+      - name: client_type
+      - name: orders
+      - name: order_product
+      - name: product
+      - name: payment_method

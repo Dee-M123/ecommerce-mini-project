@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_client_status
+    description: Reference table for client status values.
+
+    columns:
+      - name: client_status_id
+        tests:
+          - not_null
+          - unique
+
+      - name: status_name
+        tests:
+          - not_null

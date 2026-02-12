@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_payment_method
+    description: Payment method dimension.
+    columns:
+      - name: payment_key
+        description: Surrogate key for payment method.
+        tests:
+          - unique
+          - not_null
+
+      - name: payment_id
+        tests:
+          - not_null
+
+      - name: payment_method
+        tests:
+          - not_null

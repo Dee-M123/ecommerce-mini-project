@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_client
+    description: Cleaned staging table for client data.
+
+    columns:
+
+      - name: client_id
+        tests:
+          - not_null
+          - unique
+
+      - name: client_name
+        tests:
+          - not_null
+
+      - name: email
+        tests:
+          - not_null
+
+      - name: registration_date
+        tests:
+          - not_null
+
+      - name: client_status_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_client_status')
+                field: client_status_id
+
+      - name: client_type_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_client_type')
+                field: client_type_id

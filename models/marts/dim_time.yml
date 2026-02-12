@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_time
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+

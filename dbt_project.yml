@@ -1,0 +1,29 @@
+name: 'ecommerce'
+version: '1.0.0'
+
+# Tell dbt which profile to use
+profile: 'ecommerce'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  ecommerce:
+
+    prep:
+      +database: PREP
+      +schema: OLTP
+      +materialized: table
+
+    marts:
+      +database: PREP
+      +schema: STAR_SCHEMA
+      +materialized: table

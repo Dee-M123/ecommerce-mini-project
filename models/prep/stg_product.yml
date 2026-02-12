@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_product
+    description: >
+      Staging table for products. Cleans and standardizes product data
+      from RAW.OLTP.PRODUCT. Prepares product dimension for star schema
+      and revenue analysis.
+
+    columns:
+
+      - name: product_id
+        description: Unique identifier for product.
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: Standardized product name.
+        tests:
+          - not_null
+
+      - name: category
+        description: Standardized product category.
+        tests:
+          - not_null
+
+      - name: price
+        description: Unit price of the product.
+        tests:
+          - not_null
+      

@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_payment_method
+    description: >
+      Staging table for payment methods. Cleans and standardizes
+      reference payment data from RAW.OLTP.PAYMENT_METHOD.
+
+    columns:
+
+      - name: payment_id
+        description: Unique identifier for payment method.
+        tests:
+          - not_null
+          - unique
+
+      - name: payment_method
+        description: Standardized name of the payment method.
+        tests:
+          - not_null

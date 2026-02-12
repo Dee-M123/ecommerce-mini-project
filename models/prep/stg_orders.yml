@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Cleaned staging table for orders.
+
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+
+      - name: client_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_client')
+                field: client_id
+
+      - name: payment_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_payment_method')
+                field: payment_id
+
+      - name: order_date
+        tests:
+          - not_null
+
+      - name: status
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null

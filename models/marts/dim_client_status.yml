@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: dim_client_status
+    description: Client status reference dimension.
+    columns:
+      - name: client_status_key
+        tests:
+          - unique
+          - not_null
+
+      - name: client_status_id
+        tests:
+          - not_null
+
+      - name: status_name
+        tests:
+          - not_null
